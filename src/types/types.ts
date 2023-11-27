@@ -1,0 +1,19 @@
+export interface Company {
+    id:string
+    name:string
+    city:string
+    streetAddress:string
+    country:string
+    zip_code:string
+    reg_date:Date
+    employees_num:number
+    capital:string
+    turnover:string
+    net_profit:string
+    contact_num:string
+    contact_email:string
+    website:string
+    loan_amount:string
+    loan_interest:string
+    acc_status:boolean
+}
