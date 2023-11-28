@@ -13,11 +13,11 @@ const companies = [...Array(30)].map(()=>({
     turnover:faker.finance.amount({ min: 200000, max: 1000000, symbol: '$' }),
     net_profit:faker.finance.amount({ min: 20000, max: 100000, symbol: '$' }),
     contact_num:faker.phone.number(),
-    contact_email:faker.internet.email({provider:'gmail.com'}),
+    contact_email:faker.internet.email({ provider:'gmail.com'}),
     website:faker.internet.domainName(),
-    loan_amount:faker.commerce.price({ min: 10000, max: 2000000, dec: 0, symbol: '$' }),
+    loan_amount:faker.commerce.price({ min: 10000, max: 200000, dec: 0, symbol: '$' }),
     loan_interest:faker.finance.amount({min:2, max:5, symbol:'%'}),
-    acc_status:faker.datatype.boolean()
+    acc_status:faker.datatype.boolean({ probability: 0.8 })
 }))
 
 export default companies
