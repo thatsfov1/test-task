@@ -1,24 +1,39 @@
-import {createContext, ReactNode, useContext} from 'react'
+import {createContext, Dispatch, ReactNode, useContext, useReducer} from 'react'
 import companies from "../data/data";
-import {Company} from "../types/types";
+import {Action, State} from "../types/types";
+import CompanyReducer from "./CompanyReducer";
 
 type CompaniesProviderProps ={
     children:ReactNode
 }
 
-export const CompanyContext = createContext<Company[] | undefined>(undefined)
+type ContextType = {
+    state: State
+    dispatch:Dispatch<Action>
+}
+
+export const CompanyContext = createContext<ContextType | undefined>(undefined)
 
 export function useCompanyContext(){
-    const companies = useContext(CompanyContext);
-    if(companies === undefined){
+    const context = useContext(CompanyContext);
+    if(context === undefined){
         throw new Error("useCompanyContext must be used with a CompanyContext")
     }
-    return companies
+    return context
 }
 
 const ContextProvider = ({children}:CompaniesProviderProps) =>{
+
+    const [state, dispatch] = useReducer(CompanyReducer,{
+        companies:companies,
+        byAge:'',
+        searchQuery:'',
+        accountStatus:'',
+        minLoan:'',
+        maxLoan:''
+    })
     return (
-        <CompanyContext.Provider value={companies}>
+        <CompanyContext.Provider value={{state,dispatch}}>
             {children}
         </CompanyContext.Provider>
     )

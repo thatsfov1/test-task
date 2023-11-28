@@ -15,7 +15,7 @@ const companies = [...Array(30)].map(()=>({
     contact_num:faker.phone.number(),
     contact_email:faker.internet.email({ provider:'gmail.com'}),
     website:faker.internet.domainName(),
-    loan_amount:faker.commerce.price({ min: 10000, max: 200000, dec: 0, symbol: '$' }),
+    loan_amount:faker.commerce.price({ min: 100, max: 200000, dec: 0 }),
     loan_interest:faker.finance.amount({min:2, max:5, symbol:'%'}),
     acc_status:faker.datatype.boolean({ probability: 0.8 })
 }))

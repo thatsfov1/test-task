@@ -23,7 +23,7 @@ const Card = ({company}:CardProps) => {
       </CardRB.Subtitle>
       <CardRB.Text>
           <ul style={{padding:0}}>
-              <li>Loan amount - {company.loan_amount}</li>
+              <li>Loan amount - ${company.loan_amount}</li>
               <li>Loan Interest - {company.loan_interest}</li>
               <li>Account status - {company.acc_status ? 'Open 🟢' : 'Closed 🔴'}</li>
           </ul>

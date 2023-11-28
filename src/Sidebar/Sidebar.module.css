@@ -22,3 +22,8 @@ header{
 .range_container{
     display: flex;
 }
+
+.filter_title{
+    font-size: 18px;
+    font-weight: 600;
+}
