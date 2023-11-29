@@ -2,6 +2,7 @@ import React, {Dispatch, SetStateAction, useEffect, useState} from 'react'
 import s from './Modal.module.css'
 import {Company} from "../../types/types";
 import { Tab, Tabs} from "react-bootstrap";
+import BarChart from "../BarChart";
 
 type ModalProps = {
     active:boolean
@@ -45,9 +46,9 @@ const Modal = ({active, setActive,company}:ModalProps) => {
                                         Company age: {companyAge>1 ? companyAge + ' years' : companyAge + ' year' }
                                     </li>
                                     <li>Number of employees: {company.employees_num}</li>
-                                    <li>Capital: {company.capital}</li>
-                                    <li>Turnover: {company.turnover}</li>
-                                    <li>Net profit: {company.net_profit}</li>
+                                    <li>Capital: ${company.capital}</li>
+                                    <li>Turnover: ${company.turnover}</li>
+                                    <li>Net profit: ${company.net_profit}</li>
                                 </ul>
                             </div>
                         </Tab>
@@ -65,6 +66,11 @@ const Modal = ({active, setActive,company}:ModalProps) => {
                                         Email: <a href={`mailto:${company.contact_email}`}>{company.contact_email}</a>
                                     </li>
                                 </ul>
+                            </div>
+                        </Tab>
+                        <Tab eventKey="chart" title="Chart">
+                            <div className={s.tab_info}>
+                                <BarChart company={company}/>
                             </div>
                         </Tab>
                     </Tabs>

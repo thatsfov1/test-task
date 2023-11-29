@@ -2,10 +2,13 @@ import React from 'react'
 import s from './Home.module.css'
 import {useCompanyContext} from "../state/Context";
 import Card from "../components/Card";
+import LoginForm from "../LoginForm/LoginForm";
 
 
 const Home = () => {
     const {state:{companies,byAge, searchQuery, accountStatus,minLoan, maxLoan}} = useCompanyContext()
+    const userData = localStorage.getItem("login")
+    const passwordData = localStorage.getItem("password")
 
     const transformedCompanies = () => {
         let filterCompanies = companies
@@ -33,9 +36,19 @@ const Home = () => {
     }
 
   return (
-          <div className={s.container}>
-              {transformedCompanies().map((company)=> <Card company={company} key={company.id}/>)}
-          </div>
+        <>
+            {userData && passwordData  ? (
+                <div className={s.container}>
+                    {transformedCompanies().map((company)=> <Card company={company} key={company.id}/>)}
+                </div>
+            ) : (
+                <div className={s.login_container}>
+                    <LoginForm/>
+                </div>
+
+            )}
+        </>
+
   )
 }
 

@@ -27,6 +27,11 @@ const CompanyReducer = (state:State,action:Action):State =>{
                 ...state, maxLoan:action.payload
             }
         }
+        case "SET_LOGIN":{
+            return{
+                ...state, isLoggedIn:action.isLoggedIn
+            }
+        }
         case "CLEAR_ALL_FILTERS":{
             return{
                 ...state,

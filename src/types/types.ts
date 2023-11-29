@@ -25,7 +25,9 @@ export type State = {
     accountStatus:string
     minLoan:string
     maxLoan:string
+    isLoggedIn:boolean
 }
+
 
 export type Action =
     | { type: 'FILTER_BY_AGE', payload:string }
@@ -33,5 +35,6 @@ export type Action =
     | { type: 'FILTER_BY_ACCOUNT_STATUS', payload:string }
     | { type: 'SET_MIN_LOAN', payload:string }
     | { type: 'SET_MAX_LOAN', payload:string }
+    | { type: 'SET_LOGIN', isLoggedIn:boolean }
     | { type: 'CLEAR_ALL_FILTERS' }
 

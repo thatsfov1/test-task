@@ -30,7 +30,8 @@ const ContextProvider = ({children}:CompaniesProviderProps) =>{
         searchQuery:'',
         accountStatus:'',
         minLoan:'',
-        maxLoan:''
+        maxLoan:'',
+        isLoggedIn:false
     })
     return (
         <CompanyContext.Provider value={{state,dispatch}}>
