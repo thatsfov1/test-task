@@ -1,5 +1,5 @@
-.container{
-    margin:20px 0 20px 320px;
+.container {
+    margin: 20px 0 20px 320px;
     display: flex;
     flex-wrap: wrap;
     width: 100vw;
@@ -7,11 +7,24 @@
     gap: 20px;
 }
 
-.login_container{
+.login_container {
     margin-left: 340px;
     height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* ---------------------------------Media-----------------------------*/
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px 0;
+        width: auto;
+    }
+
+    .login_container {
+        margin: 0;
+    }
 }

@@ -10,13 +10,19 @@
 }
 
 header{
-    font-size: 2rem;
     margin-bottom: 10px;
 }
 
-.filters_container{
-    flex: 1 1 auto;
+
+button{
+    width: 100%;
+    margin-top: 10px !important;
 }
+
+.main_header{
+    font-size: 1.5rem !important;
+}
+
 .filters_container div:not(:last-child){
     margin-top: 10px;
 }
@@ -28,4 +34,53 @@ header{
 .filter_title{
     font-size: 18px;
     font-weight: 600;
+}
+
+
+/* ---------------------------------Media-----------------------------*/
+
+@media (max-width: 768px) {
+    .container{
+        position: relative;
+        height: auto;
+        width:100vw;
+        border-right: none;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .filters_container div:not(:last-child){
+        margin-top: 0;
+    }
+    .sort_container{
+        display: flex;
+        margin-top: 20px !important;
+    }
+    .sort_block{
+        flex: 0 1 33.333%;
+    }
+    .main_header{
+        position:absolute;
+    }
+    .range_container{
+        gap:10px;
+    }
+    button{
+        width: auto;
+    }
+    .button_group{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    .sort_container{
+        font-size: 0.875rem;
+    }
+    .filter_title{
+        font-size: 1rem;
+    }
+    .range_container{
+        flex-direction: column;
+    }
+
 }

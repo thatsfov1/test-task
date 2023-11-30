@@ -7,7 +7,11 @@ ChartJS.register(
     BarElement, CategoryScale, LinearScale, Tooltip, Legend
 )
 
-const BarChart = ({company}: Company) => {
+type ChartProps = {
+    company: Company
+}
+
+const BarChart = ({company}: ChartProps) => {
     const data = {
         labels: ['Capital', 'Loan', 'Net Profit', 'Turnover'],
         datasets: [
@@ -35,7 +39,6 @@ const BarChart = ({company}: Company) => {
         ],
     };
 
-    // Chart options
     const options = {
         scales: {
             y: {
@@ -47,7 +50,7 @@ const BarChart = ({company}: Company) => {
     return (
         <div>
             <h2>Company finance situation</h2>
-            <div style={{height: '400px', width: '600px'}}>
+            <div>
                 <Bar data={data} options={options}/>
             </div>
         </div>

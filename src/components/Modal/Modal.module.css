@@ -53,3 +53,13 @@ ul{
 .tab_info li{
     line-height: 2rem;
 }
+
+/*-------------------------MEDIA-----------------*/
+
+
+
+@media (max-width: 576px) {
+    .modal_content_container{
+        min-width: 70%;
+    }
+}

@@ -16,17 +16,18 @@ const LoginForm = () => {
 
     const {dispatch} = useCompanyContext()
 
+
+    // Login logic
     const onSubmit = async (data) => {
         if (data.login === 'user' && data.password === 'password') {
             dispatch({
                 type: "SET_LOGIN",
                 isLoggedIn: true
             })
-        localStorage.setItem("login",data.login)
-        localStorage.setItem("password",data.password)
+            localStorage.setItem("login", data.login)
+            localStorage.setItem("password", data.password)
         } else {
-            setError('login', { type: 'manual', message: 'Invalid login or password' });
-            return
+            setError('login', {type: 'manual', message: 'Invalid login or password'});
         }
     }
 
@@ -34,7 +35,8 @@ const LoginForm = () => {
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/*Login*/}
-                <div>{errors?.login && <span style={{color:"#cd2d2d", margin:'5px'}}>{errors?.login.message}</span>}</div>
+                <div>{errors?.login &&
+                    <span style={{color: "#cd2d2d", margin: '5px'}}>{errors?.login.message}</span>}</div>
                 <FloatingLabel
                     controlId="floatingInput"
                     label="Login"
@@ -46,7 +48,8 @@ const LoginForm = () => {
                     />
                 </FloatingLabel>
                 {/*Password*/}
-                <div>{errors?.password && <div style={{color:"#cd2d2d",padding:'5px'}}>{errors?.password.message}</div>}</div>
+                <div>{errors?.password &&
+                    <div style={{color: "#cd2d2d", padding: '5px'}}>{errors?.password.message}</div>}</div>
                 <FloatingLabel controlId="floatingPassword" label="Password">
                     <Form.Control {...register("password", {
                         required: "Password is required"
